@@ -11,7 +11,13 @@ class App extends React.Component {
     this.state = {
       lng: 5,
       lat: 34,
-      zoom: 2
+      zoom: 2,
+      api: {
+        tilesURL: 'http://192.66.38.54/TileService/GetTile.ashx?',
+        ticketURL: 'http://daekning.tdc.dk/teleservice2_tst/GenerateTicket.ashx?',
+        ticket: '',
+        get url() { return `${this.state.api.tiles}Ticket=${this.state.api.ticket}&Level=${this.state.zoom}&X=${this.state.lng}&Y=${this.state.lat}` },
+      }
     };
   }
   componentDidMount() {
